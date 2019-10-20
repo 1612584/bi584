@@ -1,0 +1,1304 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/19/2019 10:24:38 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-LB31OMK"
+  DTS:CreatorName="DESKTOP-LB31OMK\tammr"
+  DTS:DTSID="{7A414DBF-823A-4BD8-BC34-1B5DCD25768A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{3443F549-6F24-4891-994A-5AB06966CE80}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.toiphamstage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AC624E70-8DEE-46A6-B0C0-99F213B11C77}"
+      DTS:ObjectName="localhost.toiphamstage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=toiphamstage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Stage  to nds Category"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7E01F826-5DE9-4836-86F4-EFB7394C3A18}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Stage  to nds Category"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Stage  to nds Category\crime category nds"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="crime category nds"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[CRIME_CATEGORY]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from crime_category</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Stage  to nds Category\crime category nds.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.toiphamstage]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.toiphamstage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Stage  to nds Category\crime category nds.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="IgnoreFailure"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Stage  to nds Category\crime category nds.Inputs[OLE DB Destination Input].Columns[primaryType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="33"
+                      cachedName="primaryType"
+                      externalMetadataColumnId="Package\Stage  to nds Category\crime category nds.Inputs[OLE DB Destination Input].ExternalColumns[PrimaryType]"
+                      lineageId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Output].Columns[primaryType]" />
+                    <inputColumn
+                      refId="Package\Stage  to nds Category\crime category nds.Inputs[OLE DB Destination Input].Columns[fbiCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="fbiCode"
+                      externalMetadataColumnId="Package\Stage  to nds Category\crime category nds.Inputs[OLE DB Destination Input].ExternalColumns[FBICode]"
+                      lineageId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Output].Columns[fbiCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Stage  to nds Category\crime category nds.Inputs[OLE DB Destination Input].ExternalColumns[FBICode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="FBICode" />
+                    <externalMetadataColumn
+                      refId="Package\Stage  to nds Category\crime category nds.Inputs[OLE DB Destination Input].ExternalColumns[PrimaryType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="33"
+                      name="PrimaryType" />
+                    <externalMetadataColumn
+                      refId="Package\Stage  to nds Category\crime category nds.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Stage  to nds Category\crime category nds.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Stage  to nds Category\crime category nds.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage  to nds Category\crime category nds.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Stage  to nds Category\crime category nds.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Stage  to nds Category\crime category nds.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Stage  to nds Category\crime category nds.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Stage  to nds Category\toi pham stage"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="toi pham stage"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[hoso]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select distinct fbiCode, primaryType from hoso</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Stage  to nds Category\toi pham stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.toiphamstage]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.toiphamstage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Output].Columns[fbiCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Output].ExternalColumns[fbiCode]"
+                      length="4"
+                      lineageId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Output].Columns[fbiCode]"
+                      name="fbiCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Output].Columns[primaryType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Output].ExternalColumns[primaryType]"
+                      length="33"
+                      lineageId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Output].Columns[primaryType]"
+                      name="primaryType"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Output].ExternalColumns[fbiCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="fbiCode" />
+                    <externalMetadataColumn
+                      refId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Output].ExternalColumns[primaryType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="33"
+                      name="primaryType" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Error Output].Columns[fbiCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Error Output].Columns[fbiCode]"
+                      name="fbiCode" />
+                    <outputColumn
+                      refId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Error Output].Columns[primaryType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="33"
+                      lineageId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Error Output].Columns[primaryType]"
+                      name="primaryType" />
+                    <outputColumn
+                      refId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Stage  to nds Category.Paths[OLE DB Source Output]"
+              endId="Package\Stage  to nds Category\crime category nds.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Stage  to nds Category\toi pham stage.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Stage to nds, normalize Detail crime"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5ABF8D4E-C070-43D6-B923-C1DE628AC15C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Stage to nds, normalize Detail crime"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Stage to nds, normalize Detail crime\detail crime nds"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="detail crime nds"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DETAIL_CRIME]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.toiphamstage]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.toiphamstage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="IgnoreFailure"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].Columns[IUCR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="IUCR"
+                      externalMetadataColumnId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].ExternalColumns[IUCR]"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[IUCR]" />
+                    <inputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].Columns[_description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="59"
+                      cachedName="_description"
+                      externalMetadataColumnId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].ExternalColumns[_description]"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[_description]" />
+                    <inputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].Columns[domestic]"
+                      cachedDataType="bool"
+                      cachedName="domestic"
+                      externalMetadataColumnId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].ExternalColumns[domestic]"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[domestic]" />
+                    <inputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].Columns[createdAt]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="createdAt"
+                      externalMetadataColumnId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].ExternalColumns[createdAt]"
+                      lineageId="Package\Stage to nds, normalize Detail crime\them cot ngay tao.Outputs[Derived Column Output].Columns[createdAt]" />
+                    <inputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].Columns[categoryId]"
+                      cachedDataType="i4"
+                      cachedName="categoryId"
+                      externalMetadataColumnId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].ExternalColumns[categoryId]"
+                      lineageId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Outputs[Lookup Match Output].Columns[categoryId]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].ExternalColumns[IUCR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="IUCR" />
+                    <externalMetadataColumn
+                      refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].ExternalColumns[_description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="59"
+                      name="_description" />
+                    <externalMetadataColumn
+                      refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].ExternalColumns[Index_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Index_code" />
+                    <externalMetadataColumn
+                      refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].ExternalColumns[domestic]"
+                      dataType="bool"
+                      name="domestic" />
+                    <externalMetadataColumn
+                      refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].ExternalColumns[createdAt]"
+                      dataType="dbTimeStamp"
+                      name="createdAt" />
+                    <externalMetadataColumn
+                      refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].ExternalColumns[categoryId]"
+                      dataType="i4"
+                      name="categoryId" />
+                    <externalMetadataColumn
+                      refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Stage to nds, normalize Detail crime\detail crime nds.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\detail crime nds.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Stage to nds, normalize Detail crime\detail crime nds.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="stage extract detail crime stage"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select distinct IUCR, FBIcode, primaryType, _description, domestic from hoso</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.toiphamstage]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.toiphamstage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[IUCR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].ExternalColumns[IUCR]"
+                      length="4"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[IUCR]"
+                      name="IUCR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[FBIcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].ExternalColumns[FBIcode]"
+                      length="4"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[FBIcode]"
+                      name="FBIcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[_description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].ExternalColumns[_description]"
+                      length="59"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[_description]"
+                      name="_description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[domestic]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].ExternalColumns[domestic]"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[domestic]"
+                      name="domestic"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[primaryType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].ExternalColumns[primaryType]"
+                      length="33"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[primaryType]"
+                      name="primaryType"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].ExternalColumns[IUCR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="IUCR" />
+                    <externalMetadataColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].ExternalColumns[FBIcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="FBIcode" />
+                    <externalMetadataColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].ExternalColumns[_description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="59"
+                      name="_description" />
+                    <externalMetadataColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].ExternalColumns[domestic]"
+                      dataType="bool"
+                      name="domestic" />
+                    <externalMetadataColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].ExternalColumns[primaryType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="33"
+                      name="primaryType" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Error Output].Columns[IUCR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Error Output].Columns[IUCR]"
+                      name="IUCR" />
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Error Output].Columns[FBIcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Error Output].Columns[FBIcode]"
+                      name="FBIcode" />
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Error Output].Columns[primaryType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="33"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Error Output].Columns[primaryType]"
+                      name="primaryType" />
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Error Output].Columns[_description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="59"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Error Output].Columns[_description]"
+                      name="_description" />
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Error Output].Columns[domestic]"
+                      dataType="bool"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Error Output].Columns[domestic]"
+                      name="domestic" />
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Stage to nds, normalize Detail crime\them cot ngay tao"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="them cot ngay tao"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Stage to nds, normalize Detail crime\them cot ngay tao.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Stage to nds, normalize Detail crime\them cot ngay tao.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Stage to nds, normalize Detail crime\them cot ngay tao.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\them cot ngay tao.Outputs[Derived Column Output].Columns[createdAt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Stage to nds, normalize Detail crime\them cot ngay tao.Outputs[Derived Column Output].Columns[createdAt]"
+                      name="createdAt"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Stage to nds, normalize Detail crime\them cot ngay tao.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Stage to nds, normalize Detail crime\them cot ngay tao.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\them cot ngay tao.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Stage to nds, normalize Detail crime\them cot ngay tao.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\them cot ngay tao.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Stage to nds, normalize Detail crime\them cot ngay tao.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="tim cac detail crime da ton tai de join column, them moi"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[CRIME_CATEGORY]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[CRIME_CATEGORY]) [refTable]
+where [refTable].[FBICode] = ? and [refTable].[PrimaryType] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FBICode" dataType="DT_STR" length="4" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="PrimaryType" dataType="DT_STR" length="33" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[FBIcode]};#{Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[primaryType]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.toiphamstage]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.toiphamstage]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Inputs[Lookup Input].Columns[FBIcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="FBIcode"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[FBIcode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">FBICode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Inputs[Lookup Input].Columns[primaryType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="33"
+                      cachedName="primaryType"
+                      lineageId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output].Columns[primaryType]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">PrimaryType</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Outputs[Lookup Match Output].Columns[categoryId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Outputs[Lookup Match Output].Columns[categoryId]"
+                      name="categoryId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Stage to nds, normalize Detail crime.Paths[Derived Column Output]"
+              endId="Package\Stage to nds, normalize Detail crime\detail crime nds.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Stage to nds, normalize Detail crime\them cot ngay tao.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Stage to nds, normalize Detail crime.Paths[Lookup Match Output]"
+              endId="Package\Stage to nds, normalize Detail crime\them cot ngay tao.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Stage to nds, normalize Detail crime.Paths[OLE DB Source Output]"
+              endId="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{0B7C92F5-CF58-4FB7-810B-397221E7C967}"
+      DTS:From="Package\Stage  to nds Category"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Stage to nds, normalize Detail crime" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Stage  to nds Category"
+          TopLeft="73,32" />
+        <NodeLayout
+          Size="250,42"
+          Id="Package\Stage to nds, normalize Detail crime"
+          TopLeft="584.5,50.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="260,53">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="324.5,18.5"
+              Start="0,0"
+              End="317,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="158.25,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="158.25,0"
+                    Point2="162.25,0"
+                    Point3="162.25,4" />
+                  <mssgle:LineSegment
+                    End="162.25,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="162.25,14.5"
+                    Point2="162.25,18.5"
+                    Point3="166.25,18.5" />
+                  <mssgle:LineSegment
+                    End="317,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Stage  to nds Category">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Stage  to nds Category\toi pham stage"
+          TopLeft="61,7" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Stage  to nds Category\crime category nds"
+          TopLeft="716,33" />
+        <EdgeLayout
+          Id="Package\Stage  to nds Category.Paths[OLE DB Source Output]"
+          TopLeft="210,28">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="506,26"
+              Start="0,0"
+              End="498.5,26">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="249,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="249,0"
+                    Point2="253,0"
+                    Point3="253,4" />
+                  <mssgle:LineSegment
+                    End="253,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="253,22"
+                    Point2="253,26"
+                    Point3="257,26" />
+                  <mssgle:LineSegment
+                    End="498.5,26" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Stage  to nds Category\toi pham stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Stage  to nds Category\crime category nds">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Stage to nds, normalize Detail crime">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="227,42"
+          Id="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage"
+          TopLeft="17,23" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Stage to nds, normalize Detail crime\detail crime nds"
+          TopLeft="866,44" />
+        <NodeLayout
+          Size="343,42"
+          Id="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi"
+          TopLeft="342.5,47.5" />
+        <EdgeLayout
+          Id="Package\Stage to nds, normalize Detail crime.Paths[OLE DB Source Output]"
+          TopLeft="244,44">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.5,24.5"
+              Start="0,0"
+              End="91,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="45.25,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45.25,0"
+                    Point2="49.25,0"
+                    Point3="49.25,4" />
+                  <mssgle:LineSegment
+                    End="49.25,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.25,20.5"
+                    Point2="49.25,24.5"
+                    Point3="53.25,24.5" />
+                  <mssgle:LineSegment
+                    End="91,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Stage to nds, normalize Detail crime\them cot ngay tao"
+          TopLeft="584,189" />
+        <EdgeLayout
+          Id="Package\Stage to nds, normalize Detail crime.Paths[Derived Column Output]"
+          TopLeft="692.666666666667,189">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="250.333333333333,-103"
+              Start="0,0"
+              End="250.333333333333,-95.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-37.7935174069628" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-37.7935174069628"
+                    Point2="0,-41.7935174069628"
+                    Point3="4,-41.7935174069628" />
+                  <mssgle:LineSegment
+                    End="246.333333333333,-41.7935174069628" />
+                  <mssgle:CubicBezierSegment
+                    Point1="246.333333333333,-41.7935174069628"
+                    Point2="250.333333333333,-41.7935174069628"
+                    Point3="250.333333333333,-45.7935174069628" />
+                  <mssgle:LineSegment
+                    End="250.333333333333,-95.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stage to nds, normalize Detail crime.Paths[Lookup Match Output]"
+          TopLeft="514,89.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="126.333333333333,99.5"
+              Start="0,0"
+              End="126.333333333333,92">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.1266506602641" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.1266506602641"
+                    Point2="0,59.1266506602641"
+                    Point3="4,59.1266506602641" />
+                  <mssgle:LineSegment
+                    End="122.333333333333,59.1266506602641" />
+                  <mssgle:CubicBezierSegment
+                    Point1="122.333333333333,59.1266506602641"
+                    Point2="126.333333333333,59.1266506602641"
+                    Point3="126.333333333333,63.1266506602641" />
+                  <mssgle:LineSegment
+                    End="126.333333333333,92" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="14.9752799479167,64.1266506602641,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Stage to nds, normalize Detail crime\stage extract detail crime stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Stage to nds, normalize Detail crime\detail crime nds">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Stage to nds, normalize Detail crime\tim cac detail crime da ton tai de join column, them moi">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[CRIME_CATEGORY]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

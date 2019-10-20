@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "stage_to_nds", "stage_to_nds\stage_to_nds.dtproj", "{827049DC-3AF7-46F9-A268-2F1B5F5B0673}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{827049DC-3AF7-46F9-A268-2F1B5F5B0673}.Development|Default.ActiveCfg = Development
+		{827049DC-3AF7-46F9-A268-2F1B5F5B0673}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1EB1DE18-BAFD-4D86-A18D-A702C52699B0}
+	EndGlobalSection
+EndGlobal
