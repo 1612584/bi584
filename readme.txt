@@ -1,0 +1,2 @@
+Để chạy project, mở sql server chạy script stage.sql
+Kiểm tra các connection ở phía dưới: bao gồm 2 file .csv, 1 sql server. Có thể xảy ra lỗi to nếu ở bước này connection gặp vấn đề. Map với 2 file .csv
